@@ -51,11 +51,11 @@ if [ ! -f "$DEV_CONFIG_PATH" ]; then
   cat > "$DEV_CONFIG_PATH" <<EOF
 # ftag development config
 
-[core]
 use_absolute_paths = true
-
-[storage]
 db_path = "$DEV_DB_PATH"
+verbose = false
+debug = false
+
 EOF
   echo "[INFO]: Created dev config: $DEV_CONFIG_PATH"
 fi
@@ -78,7 +78,7 @@ export FTAG_CONFIG_DIR="$DEV_CONFIG_DIR"
 export FTAG_DB_PATH="$DEV_DB_PATH"
 
 # ---- Info output --------------------------------------------
-echo "[SUCCESS]: Setup complete."
+echo "[STATUS]: Environment ready."
 echo "> ftag dev mode"
 echo "  - config: $DEV_CONFIG_PATH"
 echo "  - db:     $DEV_DB_PATH"
