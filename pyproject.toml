@@ -38,9 +38,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/jyrkikokkola/ftag"
-Repository = "https://github.com/jyrkikokkola/ftag"
-Issues = "https://github.com/jyrkikokkola/ftag/issues"
+Homepage = "https://github.com/jyjokokk/ftag"
+Repository = "https://github.com/jyjokokk/ftag"
+Issues = "https://github.com/jyjokokk/ftag/issues"
 
 [project.scripts]
 ftag = "ftag.cli:main"
