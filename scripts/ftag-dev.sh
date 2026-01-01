@@ -14,6 +14,7 @@ DEV_DIR="$PROJECT_ROOT/dev-dir"
 
 DEV_CONFIG_DIR="$DEV_DIR/config"
 DEV_DB_DIR="$DEV_DIR/db"
+DEV_FTAG_DIR="$DEV_DIR/.ftag"
 DEV_FILES_DIR="$DEV_DIR/test-files"
 
 DEV_DB_PATH="$DEV_DB_DIR/test-db.sqlite3"
@@ -44,7 +45,8 @@ fi
 mkdir -p \
   "$DEV_CONFIG_DIR" \
   "$DEV_DB_DIR" \
-  "$DEV_FILES_DIR"
+  "$DEV_FILES_DIR" \
+  "$DEV_FTAG_DIR"
 
 # ---- Seed config.toml if missing -----------------------------
 if [ ! -f "$DEV_CONFIG_PATH" ]; then
@@ -53,6 +55,7 @@ if [ ! -f "$DEV_CONFIG_PATH" ]; then
 
 use_absolute_paths = true
 db_path = "$DEV_DB_PATH"
+ftag_dir = "$DEV_FTAG_DIR"
 verbose = false
 debug = false
 

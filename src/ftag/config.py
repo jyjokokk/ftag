@@ -41,6 +41,9 @@ def _apply_env_overrides(cfg: Config) -> None:
     if "FTAG_DEBUG" in os.environ:
         cfg["debug"] = os.environ["FTAG_DEBUG"].lower() == "true"
 
+    if "FTAG_DIR" in os.environ:
+        cfg["ftag_dir"] = os.environ["FTAG_DIR"]
+
 
 def load_config() -> Config:
     cfg = DEFAULT_CONFIG.copy()
