@@ -250,3 +250,5 @@ Temporary Items
 
 # Local files
 .local
+dev-dir/
+*.db
