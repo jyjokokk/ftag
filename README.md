@@ -9,10 +9,12 @@ A command-line tool for tagging files with custom labels.
 ## Features
 
 - **Tag files**: Add custom tags to any file
-- **List tagged files**: View all tagged files in the current directory
-- **Filter by tag**: Find all files with a specific tag
-- **Persistent storage**: Tags are stored in `~/.ftag/` using SQLite
-- **Path repair**: Automatically tracks files even if they move (inode-based)
+- **List tagged files**: View all tagged files with their tags
+- **Find by tag**: Find all files with a specific tag
+- **View tags**: List all tags or tags for a specific file
+- **Remove tags**: Remove tags from files
+- **Persistent storage**: Tags are stored in `~/.ftag/ftag.sqlite3` using SQLite
+- **Configurable**: Supports configuration via `~/.config/ftag/config.toml` or environment variables
 
 ## Installation
 

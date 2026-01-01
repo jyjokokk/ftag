@@ -22,12 +22,16 @@ DEV_CONFIG_PATH="$DEV_CONFIG_DIR/config.toml"
 
 # ---- Parse flags -------------------------------------------
 RESET=0
+PRINT_CONFIG=0
 ARGS=()
 
 for arg in "$@"; do
   case "$arg" in
     --reset)
       RESET=1
+      ;;
+    --print-config)
+      PRINT_CONFIG=1
       ;;
     *)
       ARGS+=("$arg")
@@ -81,20 +85,22 @@ export FTAG_CONFIG_DIR="$DEV_CONFIG_DIR"
 export FTAG_DB_PATH="$DEV_DB_PATH"
 
 # ---- Info output --------------------------------------------
-echo "[STATUS]: Environment ready."
-echo "> ftag dev mode"
-echo "  - config: $DEV_CONFIG_PATH"
-echo "  - db:     $DEV_DB_PATH"
-echo "  - files:  $DEV_FILES_DIR"
+if [ "$PRINT_CONFIG" -eq 1 ]; then
+  echo "[STATUS]: Environment ready."
+  echo "> ftag dev mode"
+  echo "  - config: $DEV_CONFIG_PATH"
+  echo "  - db:     $DEV_DB_PATH"
+  echo "  - files:  $DEV_FILES_DIR"
+  echo ""
+fi
 
 # ---- Run ftag ------------------------------------------------
 # Ensure src/ is in PYTHONPATH
 export PYTHONPATH="$PROJECT_ROOT/src:${PYTHONPATH:-}"
 
-# No CLI yet, so just run ftag.cli if no args are given
-# exec python -m ftag.cli "${ARGS[@]}"
+# Run ftag with args, handling empty array properly
 if [ ${#ARGS[@]} -gt 0 ]; then
-  exec python -m ftag.cli "${ARGS[@]}"
+  exec python -m ftag "${ARGS[@]}"
 else
-  exec python -m ftag.cli
+  exec python -m ftag
 fi
